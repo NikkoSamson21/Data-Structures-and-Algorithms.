@@ -1,0 +1,450 @@
+System Integration Api Documentation
+Finals Exam
+
+Nikko Errol S. Samson
+Kurt Laja
+
+
+End Point 1: Get all available phones
+Request:
+GET /api/phones
+Headers:
+    Accept: application/json
+    
+Response:
+Status code: 200 OK
+
+     Body:
+		[
+    		{
+        		"id": 1,
+        		"name": "Samsung Galaxy S23 Ultra",
+        		"brand": "Samsung",
+       			"model": "S23 Ultra",
+        		"price": "PHP 81,990",
+        		"availability": "In Stock"
+    		},
+    		{
+        		"id": 2,
+        		"name": "iPhone 15 Pro Max",
+        		"brand": "Apple",
+        		"model": "15 Pro Max",
+        		"price": "PHP 84,990",
+        		"availability": "In Stock"
+    		},
+    		{
+        		"id": 3,
+        		"name": "Xiaomi Redmi Note 12",
+        		"brand": "Xiaomi",
+        		"model": "Redmi Note 12",
+        		"price": "PHP 8,999",
+        		"availability": "Out of Stock"
+   		 },
+    		{
+       		 "id": 4,
+        		"name": "Realme C55",
+        		"brand": "Realme",
+        		"model": "C55",
+        		"price": "PHP 8,499",
+       			"availability": "In Stock"
+    		},
+    		{
+        		"id": 5,
+        		"name": "Oppo Reno8 T",
+        		"brand": "Oppo",
+        		"model": "Reno8 T",
+        		"price": "PHP 23,999",
+        		"availability": "In Stock"
+    		}
+		]
+		
+	<body>
+    		
+        		<id>1</id>
+        		<name>Samsung Galaxy S23 Ultra</name>
+        		<brand>Samsung</brand>
+        		<model>S23 Ultra</model>
+        		<price>PHP 81,990</price>
+        		<availability>In Stock</availability>
+    		
+    		
+        		<id>2</id>
+        		<name>iPhone 15 Pro Max</name>
+        		<brand>Apple</brand>
+        		<model>15 Pro Max</model>
+        		<price>PHP 84,990</price>
+        		<availability>In Stock</availability>
+    		
+    		
+        		<id>3</id>
+        		<name>Xiaomi Redmi Note 12</name>
+        		<brand>Xiaomi</brand>
+        		<model>Redmi Note 12</model>
+        		<price>PHP 8,999</price>
+        		<availability>Out of Stock</availability>
+   		
+    		
+        		<id>4</id>
+        		<name>Realme C55</name>
+        		<brand>Realme</brand>
+        		<model>C55</model>
+        		<price>PHP 8,499</price>
+       		 	<availability>In Stock</availability>
+    		
+    		
+        		<id>5</id>
+        		<name>Oppo Reno8 T</name>
+        		<brand>Oppo</brand>
+        		<model>Reno8 T</model>
+        		<price>PHP 23,999</price>
+        		<availability>In Stock</availability>
+    		
+	</body>
+
+
+
+End point 2: Get phone by ID
+Request:
+GET /api/phones/1
+Headers:
+Acept: application/json
+Accept: application/xml
+Response:
+Status code: 200 OK
+
+	body:
+		{
+    			"id": 1,
+    			"name": "Samsung Galaxy S23 Ultra",
+    			"brand": "Samsung",
+    			"model": "S23 Ultra",
+    			"price": "PHP 81,990",
+    			"availability": "In Stock"
+		}
+
+	<body>
+    		
+        		<id>1</id>
+        		<name>Samsung Galaxy S23 Ultra</name>
+        		<brand>Samsung</brand>
+        		<model>S23 Ultra</model>
+        		<price>PHP 81,990</price>
+        		<availability>In Stock</availability>
+    		
+	</body>
+
+End point 3: Add a new phone
+Request:
+POST /api/phones
+Headers:
+    Content-Type: application/json
+    Content-Type: application/xml
+	
+	body:
+		{
+    			"name": "Vivo V27e",
+    			"brand": "Vivo",
+    			"model": "V27e",
+    			"price": "PHP 16,999",
+    			"availability": "In Stock"
+		}
+	<body>
+    		
+        		<name>Vivo V27e</name>
+        		<brand>Vivo</brand>
+        		<model>V27e</model>
+        		<price>PHP 16,999</price>
+        		<availability>In Stock</availability>
+    		
+	</body>
+
+Response:
+Status code: 201 Created
+
+
+End point 4: Update phone details
+Request:
+PUT /api/phones/1
+Headers:
+    Content-Type: application/json
+    Content-Type: application/xml
+	Body:
+		{
+    			"price": "PHP 15,999",
+    			"availability": "Out of Stock"
+		}
+
+	<body>
+    		
+        		<price>PHP 15,999</price>
+        		<availability>Out of Stock</availability>
+    		
+	</body>
+
+Response:
+Status code: 200 OK
+
+
+End point 5:Delete a phone by ID
+Request:
+DELETE /api/phones/3
+Status: 200 OK
+
+	Body: 
+			{
+    			"message": "Product deleted successfully"
+			}
+	<body>
+			<message>Product deleted successfully</message>
+	</body>
+
+
+End point 6: Get all in-stock phones
+Request:
+GET /api/phones/instock
+Headers:
+    Accept: application/json
+    Accept: application/xml
+
+Response:
+Status code: 200 OK
+	Body:
+	[
+    			{
+        		"id": 1,
+        		"name": "Samsung Galaxy S23 Ultra",
+        		"brand": "Samsung",
+        		"model": "S23 Ultra",
+        		"price": "PHP 81,990",
+        		"availability": "In Stock"
+    			},
+    			{
+        		"id": 2,
+        		"name": "iPhone 15 Pro Max",
+        		"brand": "Apple",
+        		"model": "15 Pro Max",
+        		"price": "PHP 84,990",
+        		"availability": "In Stock"
+    			}
+	]
+
+	<body>
+    	
+        		<id>1</id>
+        		<name>Samsung Galaxy S23 Ultra</name>
+        		<brand>Samsung</brand>
+        		<model>S23 Ultra</model>
+        		<price>PHP 81,990</price>
+        		<availability>In Stock</availability>
+    		
+    		
+        		<id>2</id>
+        		<name>iPhone 15 Pro Max</name>
+        		<brand>Apple</brand>
+        		<model>15 Pro Max</model>
+        		<price>PHP 84,990</price>
+        		<availability>In Stock</availability>
+    	
+	</body>
+
+
+End point 7:Get all phones within a price range
+Request:
+GET /api/phones/price?min=5000&max=25000
+Headers:
+    Accept: application/json
+    Accept: appliaction/xml
+Response:
+Status code: 200 OK
+	Body:
+	[
+   		{
+        		"id": 3,
+        		"name": "Xiaomi Redmi Note 12",
+        		brand": "Xiaomi",
+       			"model": "Redmi Note 12",
+        		"price": "PHP 8,999",
+        		"availability": "Out of Stock"
+    		},
+    		{
+        		"id": 4,
+        		"name": "Realme C55",
+        		"brand": "Realme",
+        		"model": "C55",
+        		"price": "PHP 8,499",
+        		"availability": "In Stock"
+    		}	
+	]
+	<body>
+   	 
+        		<id>3</id>
+        		<name>Xiaomi Redmi Note 12</name>
+        		<brand>Xiaomi</brand>
+        		<model>Redmi Note 12</model>
+        		<price>PHP 8,999</price>
+        		<availability>Out of Stock</availability>
+    		
+    		
+        		<id>4</id>
+        		<name>Realme C55</name>
+        		<brand>Realme</brand>
+        		<model>C55</model>
+        		<price>PHP 8,499</price>
+        		<availability>In Stock</availability>
+    		
+	</body>
+
+
+End point 8: Search phones by brand
+Request:
+GET /api/phones/brand/Samsung
+Headers:
+    Accept: application/json
+    Accept: application/xml
+Response:
+Status code: 200 OK
+	Body:
+	[
+    		{
+        		"id": 1,
+        		"name": "Samsung Galaxy S23 Ultra",
+        		"brand": "Samsung",
+        		"model": "S23 Ultra",
+        		"price": "PHP 81,990",
+        		"availability": "In Stock"
+    		}		
+		]	
+
+	<body>
+    		
+        		<id>1</id>
+        		<name>Samsung Galaxy S23 Ultra</name>
+        		<brand>Samsung</brand>
+        		<model>S23 Ultra</model>
+        		<price>PHP 81,990</price>
+        		<availability>In Stock</availability>
+    		
+	</body>
+
+End point 9: delete apple brand
+Request:
+DELETE /api/phones/brand
+Headers:
+    Accept: application/json
+    Accept: application/xml
+Response:
+Status code: 200 OK
+	Body:
+	[
+		{
+    			"brand": "Apple"
+		}
+	]
+	{
+    			"message": "All devices of brand 'Apple' have been deleted successfully",
+"remainingDevices": [
+        	{
+            		"id": 1,
+            		"name": "Samsung Galaxy S23 Ultra",
+            		"brand": "Samsung",
+            		"model": "S23 Ultra",
+            		"price": "PHP 81,990",
+            		"availability": "In Stock"
+        	},
+       		{
+            		"id": 3,
+            		"name": "Xiaomi Redmi Note 12",
+            		"brand": "Xiaomi",
+            		"model": "Redmi Note 12",
+            		"price": "PHP 8,999",
+            		"availability": "Out of Stock"
+        	},
+        	{
+            		"id": 4,
+            		"name": "Realme C55",
+            		"brand": "Realme",
+            		"model": "C55",
+            		"price": "PHP 8,499",
+            		"availability": "In Stock"
+        	},
+        	{
+            		"id": 5,
+            		"name": "Oppo Reno8 T",
+            		"brand": "Oppo",
+            		"model": "Reno8 T",
+            		"price": "PHP 23,999",
+            		"availability": "In Stock"
+        	}
+    		]
+	<response>
+   			<message>All devices of brand 'Apple' have been deleted successfully</message>
+    			<remainingDevices>
+        	
+            		<id>1</id>
+           		<name>Samsung Galaxy S23 Ultra</name>
+            		<brand>Samsung</brand>
+            		<model>S23 Ultra</model>
+            		<price>PHP 81,990</price>
+            		<availability>In Stock</availability>
+        	
+        	
+            		<id>3</id>
+            		<name>Xiaomi Redmi Note 12</name>
+            		<brand>Xiaomi</brand>
+            		<model>Redmi Note 12</model>
+            		<price>PHP 8,999</price>
+            		<availability>Out of Stock</availability>
+        	
+        	
+            		<id>4</id>
+            		<name>Realme C55</name>
+            		<brand>Realme</brand>
+            		<model>C55</model>
+            		<price>PHP 8,499</price>
+            		<availability>In Stock</availability>
+        	
+        	
+            		<id>5</id>
+            		<name>Oppo Reno8 T</name>
+            		<brand>Oppo</brand>
+            		<model>Reno8 T</model>
+            		<price>PHP 23,999</price>
+            		<availability>In Stock</availability>
+        	
+    			</remainingDevices>
+	/response>
+
+
+End point 10: Get Oppo brand
+Request:
+Get /api/phones/brand/oppo
+Headers:
+    Accept: application/json
+    Accept: application/xml
+Response:
+Status code: 200 OK
+	Body:
+	[
+		{
+        	
+            			"id": 5,
+           			 "name": "Oppo Reno8 T",
+            			"brand": "Oppo",
+            			"model": "Reno8 T",
+            			"price": "PHP 23,999",
+            			"availability": "In Stock"
+		}
+    	]
+	<body>
+    			
+       			
+            			<id>5</id>
+            			<name>Oppo Reno8 T</name>
+            			<brand>Oppo</brand>
+            			<model>Reno8 T</model>
+            			<price>PHP 23,999</price>
+            			<availability>In Stock</availability>
+        		
+	</body>
+
+			
